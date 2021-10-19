@@ -1,7 +1,35 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
 
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite; /* Safari */
+      animation: spin 2s linear infinite;
+      border-top: 16px solid blue;
+      border-right: 16px solid green;
+      border-bottom: 16px solid red;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style>
+</head>
+<body>
+    <center>
     {% if user_images %}
     <h1>Click on image to download.</h1>
         {%for name in user_images%}
@@ -11,10 +39,23 @@
 
         {%endfor%}
     {% else %}
-        Please refresh the page to get the output. The script is still running.
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="loader"></div>
+        <h1>Please wait…
+        <br>
+            The reports are being generated. It will just take a moment.</h1>
         <FORM>
-        <INPUT Type="button" VALUE="Reload Page" onClick="history.go(0)">
+        <INPUT Type="button" VALUE="Refresh" onClick="history.go(0)">
         </FORM>
     {% endif %}
+    </center>
 </body>
 </html>
